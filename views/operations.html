@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+    <title>Operation List</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="css/dataTables.bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/select2.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" type="text/css">
+    <link href="css/style.css" rel="stylesheet" type="text/css">
+    <!--[if lt IE 9]>
+    <script src="js//html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="theme-purple">
+<div class="main-wrapper">
+    <div class="header">
+        <div class="header-left">
+            <a href="profile.php" class="logo">
+                <img style="margin-top: 8px;" src="images/KnowBusinessTrans.png" height="50" alt="">
+            </a>
+            <a href="profile.php" class="logo-dark">
+
+            </a>
+        </div>
+        <div class="page-title-box pull-left">
+            <h3>Product Integration</h3>
+        </div>
+        <a id="mobile_btn" class="mobile_btn pull-left" href="#sidebar"><i class="fa fa-bars" aria-hidden="true"></i></a>
+
+
+
+
+        <div class="dropdown mobile-user-menu pull-right">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a>
+            <ul class="dropdown-menu pull-right">
+                <li><a href="profile.html">My Profile</a></li>
+
+                <li><a href="login.php">Logout</a></li>
+            </ul>
+        </div>
+    </div>         <div class="sidebar" id="sidebar">
+    <div class="sidebar-inner slimscroll">
+        <div id="sidebar-menu" class="sidebar-menu">
+            <ul>
+
+                <li>
+                    <a href="operations" >Operations</a>
+                </li>
+                <li>
+                    <a href="dependencies">Dependencies</a>
+                </li>
+
+
+
+
+
+
+            </ul>
+        </div>
+    </div>
+</div>         <div class="page-wrapper">
+    <div class="content container-fluid">
+        <div class="row">
+            <div class="col-xs-4">
+                <h4 class="page-title">Operations</h4>
+            </div>
+            <div class="col-xs-8 text-right m-b-30">
+                <a href="operations/get-operations-xls" class="btn btn-primary pull-right rounded" ><i class=""></i> Export To CSV</a>
+                <a href="#" class="btn btn-primary pull-right rounded" data-toggle="modal" data-target="#add_employee"><i class="fa fa-plus"></i> Add Operation</a>
+
+
+
+                <div class="view-icons">
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="table-responsive">
+
+                    <table class="table table-striped custom-table datatable">
+                        <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Product Type</th>
+                            <th>Service</th>
+                            <th>Operation</th>
+                            <th>Operation Name</th>
+                            <th>Operation Status</th>
+                            <th>Deployment</th>
+                            <th>Last Updated</th>
+                            <th class="text-right">Action</th>
+                        </tr>
+                        </thead>
+                        <tbody id="operationsTable">
+
+
+
+
+
+
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+    <div id="add_employee" class="modal custom-modal fade" role="dialog">
+        <div class="modal-dialog">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <div class="modal-content modal-lg">
+                <div class="modal-header">
+                    <h4 class="modal-title">Add Operation</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="m-b-30">
+                        <div class="row">
+
+                            <hr style="border: 0.5px solid #ffa351;"/>
+                            <div class="modal-header">
+                                <h4 class="modal-title">Product Details</h4>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Product <span class="text-danger">*</span></label>
+                                    <input id=product class="form-control" type="text">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Product Type <span class="text-danger">*</span></label>
+                                    <select id=product_type class="select">
+                                        <option value="UI">UI</option>
+                                        <option value="ESB">ESB</option>
+                                        <option value="Service">Service</option>
+                                        <option value="SWMS">SWMS</option>
+                                        <option value="DB">DB</option>
+                                        <option value="other">other</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Service <span class="text-danger">*</span></label>
+                                    <input id=service class="form-control" type="text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Operation <span class="text-danger">*</span></label>
+                                    <input id=operation class="form-control" type="text">
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Operation Status <span class="text-danger">*</span></label>
+                                    <select id=service_status class="select">
+                                        <option value="Idea">Idea</option>
+                                        <option value="Planned">Planned</option>
+                                        <option value="Specified">Specified</option>
+                                        <option value="In Build">In Build</option>
+                                        <option value="In Test">In Test</option>
+                                        <option value="Deprecated">Deprecated</option>
+                                        <option value="Done">Done</option>
+
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label class="control-label">Deployment <span class="text-danger">*</span></label>
+                                    <select id=deployment class="select">
+                                        <option value="D5 (New)">D5 (New)</option>
+                                        <option value="D5 (Update)">D5 (Update)</option>
+                                        <option value="D6 (New)">D6 (New)</option>
+                                        <option value="D6 (Update)">D6 (Update)</option>
+                                        <option value="D7 (New)">D7 (New)</option>
+                                        <option value="D7 (Update)">D7 (Update)</option>
+                                        <option value="D8 (New)">D8 (New)</option>
+                                        <option value="D8 (Update)">D8 (Update)</option>
+                                        <option value="D9 (New)">D9 (New)</option>
+                                        <option value="D9 (Update)">D9 (Update)</option>
+                                        <option value="D10 (New)">D10 (New)</option>
+                                        <option value="D10 (Update)">D10 (Update)</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+
+
+                </div>
+            </div>
+
+            <div class="m-t-20 text-center">
+                <button type=button onclick="addClient();" class="btn btn-primary">Create Operation</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div id="editoperations"></div>
+<div id="deleteoperations"></div>
+
+
+
+
+
+
+
+
+
+
+</div>
+<div class="sidebar-overlay" data-reff="#sidebar"></div>
+<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="js/dataTables.bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.slimscroll.js"></script>
+<script type="text/javascript" src="js/select2.min.js"></script>
+<script type="text/javascript" src="js/moment.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="js/app.js"></script>
+<script>
+  function addClient() {
+
+
+    $.ajax({
+      url: "/operations/add-operation",
+      type: "POST",
+      data: {
+        product: $("#product").val(),
+        product_type: $("#product_type").val(),
+        service: $("#service").val(),
+        operation: $("#operation").val(),
+        operation_name: $("#product").val()+':'+$("#service").val()+':'+$("#operation").val(),
+        service_status: $("#service_status").val(),
+        deployment: $("#deployment").val()
+
+
+
+
+      },
+      success: function (data) {
+        if (data) {
+          if(data.status == "ok"){
+            window.location="./operations"
+          }
+          else{
+            console.log(data);
+            alert("Error!");
+            //window.location="./seller_list.php"
+          }
+        }
+      },
+      error: function (xhr, status, error) {
+        var err = eval("(" + xhr.responseText + ")");
+        alert(err.Message);
+      }
+    });
+  }
+
+
+  function deleteClient(id) {
+    $.ajax({
+      url: "/operations/delete-operation",
+      type: "POST",
+      data: {
+        id: id
+      },
+      success: function (data) {
+        if (data) {
+          if(data.status == "ok"){
+            window.location="./operations"
+          }
+          else{
+            console.log(data);
+            alert("Error!");
+          }
+        }
+      },
+      error: function (xhr, status, error) {
+        var err = eval("(" + xhr.responseText + ")");
+        alert(err.Message);
+      }
+    });
+  }
+
+
+  function updateClient(id) {
+    $.ajax({
+      url: "/operations/update-operation",
+      type: "POST",
+      data: {
+
+        product: $("#product"+id).val(),
+        product_type: $("#product_type"+id).val(),
+        service: $("#service"+id).val(),
+        operation: $("#operation"+id).val(),
+        operation_name: $("#product"+id).val()+':'+$("#service"+id).val()+':'+$("#operation"+id).val(),
+        service_status: $("#service_status"+id).val(),
+        deployment: $("#deployment"+id).val(),
+        id: id
+      },
+      success: function (data) {
+        if (data) {
+          if(data.status == "ok"){
+            window.location="./operations"
+          }
+          else{
+            console.log(data);
+            alert("Error!");
+          }
+        }
+      },
+      error: function (xhr, status, error) {
+        var err = eval("(" + xhr.responseText + ")");
+        alert(err.Message);
+      }
+    });
+  }
+
+
+  function getOperations() {
+    $.ajax({
+      url: "./operations/get-operations",
+      type: "GET",
+      data: {
+
+      },
+      success: function (data) {
+        console.log(data);
+        if (data) {
+          if(data.status == "ok"){
+            $.each(data.data, function( index, data ) {
+              $( "#operationsTable" ).append(
+                '<tr> <td> <h2><a href="#">'+data.product+' <span></span></a></h2> </td> <td>'+data.product_type+'</td> <td>'+data.service+'</td> <td>'+data.operation+'</td> <td>'+data.operation_name+'</td> <td>'+data.service_status+'</td> <td>'+data.deployment+'</td> <td>'+data.date_added+'</td> <td class="text-right"> <div class="dropdown"> <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-ellipsis-v"></i></a> <ul class="dropdown-menu pull-right"> <li><a href="#" data-toggle="modal" data-target="#edit_employee'+data.operation_id+'"><i class="fa fa-pencil m-r-5"></i> Edit</a></li> <li><a href="#" data-toggle="modal" data-target="#delete_employee'+data.operation_id+'"><i class="fa fa-trash-o m-r-5"></i> Delete</a></li> </ul> </div> </td> </tr>'
+              );
+              $( "#editoperations" ).append(
+                '<div id="edit_employee'+data.operation_id+'" class="modal custom-modal fade" role="dialog"> <div class="modal-dialog"> <button type="button" class="close" data-dismiss="modal">&times;</button> <div class="modal-content modal-lg"> <div class="modal-header"> <h4 class="modal-title">Edit Operation</h4> </div> <div class="modal-body"> <form class="m-b-30"> <div class="row"> <hr style="border: 0.5px solid #ffa351;"/> <div class="modal-header"> <h4 class="modal-title">Product Details</h4> </div> <div class="col-sm-6"> <div class="form-group"> <label class="control-label">Product <span class="text-danger">*</span></label> <input value="'+data.product+'" id=product'+data.operation_id+' class="form-control" type="text"> </div> </div> <div class="col-sm-6"> <div class="form-group"> <label class="control-label">Product Type <span class="text-danger">*</span></label> <select id=product_type'+data.operation_id+' class="select"> <option selected value="UI">UI</option> <option value="ESB">ESB</option> <option value="Service">Service</option> <option value="SWMS">SWMS</option> <option value="DB">DB</option> <option value="other">other</option> </select> </div> </div> <div class="col-sm-6"> <div class="form-group"> <label class="control-label">Service<span class="text-danger">*</span></label> <input value="'+data.service+'" id=service'+data.operation_id+' class="form-control" type="text"> </div> </div> <div class="col-sm-6"> <div class="form-group"> <label class="control-label">Operation <span class="text-danger">*</span></label> <input value="'+data.operation+'" id=operation'+data.operation_id+' class="form-control" type="text"> </div> </div> <div class="col-sm-6"> <div class="form-group"> <label class="control-label">Operation Status<span class="text-danger">*</span></label> <select id=service_status'+data.operation_id+' class="select"> <option selected value="Idea">Idea</option> <option value="Planned">Planned</option> <option value="Specified">Specified</option> <option value="In Build">In Build</option> <option value="In Test">In Test</option> <option value="Deprecated">Deprecated</option> <option value="Done">Done</option> </select> </div> </div> <div class="col-sm-6"> <div class="form-group"> <label class="control-label">Deployment<span class="text-danger">*</span></label> <select id=deployment'+data.operation_id+' class="select" type="text"> <option selected value="D5 (New)">D5 (New)</option> <option value="D5 (Update)">D5 (Update)</option> <option value="D6 (New)">D6 (New)</option> <option value="D6 (Update)">D6 (Update)</option> <option value="D7 (New)">D7 (New)</option> <option value="D7 (Update)">D7 (Update)</option> <option value="D8 (New)">D8 (New)</option> <option value="D8 (Update)">D8 (Update)</option> <option value="D9 (New)">D9 (New)</option> <option value="D9 (Update)">D9 (Update)</option> <option value="D10 (New)">D10 (New)</option> <option value="D10 (Update)">D10 (Update)</option> </select> </div> </div> </div> <div class="m-t-20 text-center"> <button type="button" onclick="updateClient('+data.operation_id+');" class="btn btn-primary">Save Changes</button> </div> </form> </div> </div> </div> </div> '
+              );
+              $( "#deleteoperations" ).append(
+                '<div id="delete_employee'+data.operation_id+'" class="modal custom-modal fade" role="dialog"> <div class="modal-dialog"> <div class="modal-content modal-md"> <div class="modal-header"> <h4 class="modal-title">Delete Buyer</h4> </div> <form> <div class="modal-body card-box"> <p>Are you sure want to delete this?</p> <div class="m-t-20"> <a href="#" class="btn btn-default" data-dismiss="modal">Close</a> <button type="button" onclick="deleteClient('+data.operation_id+');" class="btn btn-danger">Delete</button> </div> </div> </form> </div> </div> </div> '
+              );
+              ($('#product_type'+data.operation_id).val(data.product_type).trigger('change'));
+              ($('#deployment'+data.operation_id).val(data.deployment).trigger('change'));
+              ($('#service_status'+data.operation_id).val(data.service_status).trigger('change'));
+            });
+          }
+          else{
+            console.log(data);
+            alert("Error!");
+          }
+        }
+      },
+      error: function (xhr, status, error) {
+        var err = eval("(" + xhr.responseText + ")");
+        alert(err.Message);
+      }
+    });
+  }
+  getOperations();
+
+</script>
+</body>
+
+</html>
