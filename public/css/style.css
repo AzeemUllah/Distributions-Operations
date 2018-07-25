@@ -875,18 +875,18 @@ transform-origin: left top;transition: 240ms;left: 12px;top: -8px;z-index: 1;col
 
 .theme-purple .header {
 	background: #667eea;
-	background: -moz-linear-gradient(left, #667eea 0%, #764ba2 100%);
-	background: -webkit-gradient(left top, right top, color-stop(0%, #667eea), color-stop(100%, #764ba2));
-	background: -webkit-linear-gradient(left, #667eea 0%, #764ba2 100%);
-	background: -o-linear-gradient(left, #667eea 0%, #764ba2 100%);
-	background: -ms-linear-gradient(left, #667eea 0%, #764ba2 100%);
-	background: linear-gradient(to right, #667eea 0%, #764ba2 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#667eea', endColorstr='#764ba2', GradientType=1 );
+	background: -moz-linear-gradient(left, #ffffff 0%, #ffffff 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, #ffffff), color-stop(100%, #ffffff));
+	background: -webkit-linear-gradient(left, #ffffff 0%, #ffffff 100%);
+	background: -o-linear-gradient(left, #ffffff 0%, #ffffff 100%);
+	background: -ms-linear-gradient(left, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to right, #ffffff 0%, #ffffff 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff', GradientType=1 );
 	border-bottom:none;
 }
 .theme-purple .logo {display:block;}
 .theme-purple .logo-dark {display:none;}
-.theme-purple .page-title-box h3 {color:#fff;}
+.theme-purple .page-title-box h3 {color:#000;}
 .theme-purple .user-menu.nav > li > a {color: #fff;}
 .theme-purple .sidebar-menu li.active a {background-color: #263238;color: #fff;}
 .theme-purple .sidebar {background-color: #34444c;border-right: none;}

@@ -263,12 +263,14 @@ function($) {
 		}
 	});
 	$(document).ready(function() {
-		if($('.datatable').length > 0 ){
-			$('.datatable').DataTable({
-				"bdestroy": true,
-				"bFilter": false,
-			});
-		}
+		// if($('.datatable').length > 0 ){
+		// 	$('.datatable').DataTable({
+		// 		"bdestroy": true,
+		// 		"bFilter": false,
+     //    "searching": true,
+     //    "lengthMenu": [[100, 200, 300, -1], [100, 200, 300, "All"]]
+		// 	});
+		// }
 	});
 	$(document).ready(function() {
 		if($('[data-toggle="tooltip"]').length > 0 ){

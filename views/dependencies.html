@@ -16,6 +16,12 @@
     <!--[if lt IE 9]>
     <script src="js//html5shiv.min.js"></script>
     <script src="js/respond.min.js"></script>
+    <style>
+        .select2-container{
+            width: 100% !important;
+        }
+    </style>
+
     <![endif]-->
 </head>
 <body class="theme-purple">
@@ -334,6 +340,13 @@
               ($('#operation_name_call'+data.dependencies_id).val(data.operation_name_call).trigger('change'));
               ($('#operation_name'+data.dependencies_id).val(data.operation_name).trigger('change'));
             });
+            $('.select').select2();
+            $('.datatable').DataTable({
+              "bdestroy": true,
+              "bFilter": false,
+              "searching": true,
+              "lengthMenu": [[100, 200, 300, -1], [100, 200, 300, "All"]]
+            });
           }
           else{
             console.log(data);
@@ -363,6 +376,8 @@
                 '<option value='+data.operation_name+'>'+data.operation_name+'</option>'
               );
             });
+            $('.select').select2();
+
           }
           else{
             console.log(data);

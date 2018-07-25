@@ -16,12 +16,12 @@ router.get('/',function(req,res){
 });
 
 router.get('/get-dependencies', function(req, res, next) {
-  db.query('SELECT * FROM dependencies', function(err, results, fields) {
-    if (err) throw res.json({status : "error", data: null, error: err});
-    if(!err) {
-      res.json({status : "ok", data: results, error: null});
-    }
-  });
+    db.query('SELECT * FROM dependencies', function(err, results, fields) {
+      if (err) throw res.json({status : "error", data: null, error: err});
+      if(!err) {
+        res.json({status : "ok", data: results, error: null});
+      }
+    });
 });
 
 router.post('/add-dependencies',[
@@ -80,11 +80,12 @@ router.post('/delete-dependencies',[
 });
 
 router.get('/get-dependencies-xls', function(req, res, next) {
-  db.query('SELECT * FROM dependencies', function(err, results, fields) {
+  db.query("SELECT `operation_name_call` as 'Operation Name Calls', `operation_name` as 'Operation Name', `integration_status` as 'Integration Status', `date_added` as 'Last Updated',  `comments` as 'Comments' FROM `dependencies`", function(err, results, fields) {
     if (err) throw res.json({status : "error", data: null, error: err});
     if(!err) {
       var obj = results;
       var xls = json2xls(obj);
+
       var fileName = 'excel/dependencies/dependencies - ' + Moment(new Date()).format('DD-MM-YYYY h-mm-ss') + '.xlsx';
       fs.writeFileSync(fileName, xls, 'binary');
       res.download(path.resolve(fileName), fileName, { flag: 'w' });

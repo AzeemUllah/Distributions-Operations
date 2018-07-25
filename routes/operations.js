@@ -16,7 +16,7 @@ router.get('/',function(req,res){
 });
 
 router.get('/get-operations', function(req, res, next) {
-  db.query('SELECT * FROM operation', function(err, results, fields) {
+    db.query('SELECT * FROM operation', function(err, results, fields) {
     if (err) throw res.json({status : "error", data: null, error: err});
     if(!err) {
       res.json({status : "ok", data: results, error: null});
@@ -86,7 +86,7 @@ router.post('/delete-operation',[
 });
 
 router.get('/get-operations-xls', function(req, res, next) {
-  db.query('SELECT * FROM operation', function(err, results, fields) {
+  db.query("SELECT product as 'Product', product_type as 'Product Type', service as 'Service', operation as 'Operation', operation_name as 'Operation Name', service_status as 'Service Status', deployment as 'Deployment', date_added as 'Last Updated' FROM operation", function(err, results, fields) {
     if (err) throw res.json({status : "error", data: null, error: err});
     if(!err) {
       var obj = results;
